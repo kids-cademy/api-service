@@ -1,0 +1,207 @@
+{
+	"entries": [
+		{
+			"entry": "formation",
+			"pronunciations": [
+				{
+					"transcriptions": [
+						{
+							"transcription": "/fə(ɹ).meɪ.ʃən/",
+							"notation": "IPA"
+						}
+					],
+					"context": {
+						"regions": [
+							"United Kingdom"
+						]
+					}
+				},
+				{
+					"transcriptions": [
+						{
+							"transcription": "/fɔɹ.meɪ.ʃən/",
+							"notation": "IPA"
+						}
+					],
+					"context": {
+						"regions": [
+							"United States"
+						]
+					}
+				}
+			],
+			"hyphenations": [
+				[
+					"for",
+					"ma",
+					"tion"
+				]
+			],
+			"interpretations": [
+				{
+					"lemma": "formation",
+					"normalizedLemmas": [
+						{
+							"lemma": "formation"
+						}
+					],
+					"partOfSpeech": "noun",
+					"grammar": [
+						{
+							"number": [
+								"singular"
+							],
+							"case": [
+								"nominative"
+							]
+						}
+					]
+				}
+			],
+			"lexemes": [
+				{
+					"lemma": "formation",
+					"partOfSpeech": "noun",
+					"senses": [
+						{
+							"definition": "Something possessing structure or form.",
+							"labels": [
+								"countable",
+								"uncountable"
+							]
+						},
+						{
+							"definition": "The act of assembling a group or structure.",
+							"labels": [
+								"countable",
+								"uncountable"
+							]
+						},
+						{
+							"definition": "A rock or face of a mountain.",
+							"labels": [
+								"countable",
+								"uncountable"
+							],
+							"context": {
+								"domains": [
+									"geology"
+								]
+							}
+						},
+						{
+							"definition": "A grouping of military units or smaller formations under a command, such as a brigade, division, wing, etc.",
+							"labels": [
+								"countable",
+								"uncountable"
+							],
+							"context": {
+								"domains": [
+									"military"
+								]
+							},
+							"synonyms": [
+								"battle group",
+								"brigade group",
+								"combat team",
+								"task force"
+							]
+						},
+						{
+							"definition": "An arrangement of moving troops, ships, or aircraft, such as a wedge, line abreast, or echelon. Often \"in formation\".",
+							"labels": [
+								"countable",
+								"uncountable"
+							],
+							"context": {
+								"domains": [
+									"military"
+								]
+							},
+							"synonyms": [
+								"battle formation",
+								"tactical formation"
+							]
+						},
+						{
+							"definition": "An arrangement of players designed to facilitate certain plays.",
+							"labels": [
+								"countable",
+								"uncountable"
+							],
+							"context": {
+								"domains": [
+									"sports"
+								]
+							}
+						},
+						{
+							"definition": "The process of influencing or guiding a person to a deeper understanding of a particular vocation.",
+							"labels": [
+								"countable",
+								"uncountable"
+							]
+						},
+						{
+							"definition": "The process during which something comes into being and gains its characteristics.",
+							"labels": [
+								"countable",
+								"uncountable"
+							]
+						},
+						{
+							"definition": "A structure made of two categories, two functors from the first to the second category, and a transformation from one of the functors to the other.",
+							"labels": [
+								"countable",
+								"uncountable"
+							],
+							"context": {
+								"domains": [
+									"mathematics"
+								]
+							}
+						}
+					],
+					"forms": [
+						{
+							"form": "formations",
+							"grammar": [
+								{
+									"number": [
+										"plural"
+									],
+									"case": [
+										"nominative"
+									]
+								}
+							]
+						}
+					],
+					"synonymSets": [
+						{
+							"synonyms": [
+								"battle formation",
+								"tactical formation"
+							]
+						},
+						{
+							"synonyms": [
+								"battle group",
+								"brigade group",
+								"combat team",
+								"task force"
+							]
+						}
+					]
+				}
+			],
+			"license": {
+				"name": "CC BY-SA 3.0",
+				"url": "https://creativecommons.org/licenses/by-sa/3.0"
+			},
+			"sourceUrls": [
+				"https://en.wiktionary.org/wiki/formation"
+			]
+		}
+	]
+}

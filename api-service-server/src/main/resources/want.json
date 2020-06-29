@@ -1,0 +1,530 @@
+{
+  "entries": [
+    {
+      "entry": "want",
+      "pronunciations": [
+        {
+          "transcriptions": [
+            {
+              "transcription": "/wɒnt/",
+              "notation": "IPA"
+            }
+          ],
+          "context": {
+            "regions": [
+              "Australia"
+            ]
+          }
+        },
+        {
+          "transcriptions": [
+            {
+              "transcription": "/wɒnt/",
+              "notation": "IPA"
+            },
+            {
+              "transcription": "/wʌnt/",
+              "notation": "IPA"
+            }
+          ],
+          "context": {
+            "regions": [
+              "New Zealand"
+            ]
+          }
+        },
+        {
+          "transcriptions": [
+            {
+              "transcription": "/wɒnt/",
+              "notation": "IPA"
+            }
+          ],
+          "audio": {
+            "url": "http://audio.linguarobot.io/en/want-uk.mp3",
+            "license": {
+              "name": "BY 3.0 US",
+              "url": "https://creativecommons.org/licenses/by/3.0/us"
+            },
+            "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=9028834"
+          },
+          "context": {
+            "regions": [
+              "United Kingdom"
+            ]
+          }
+        },
+        {
+          "transcriptions": [
+            {
+              "transcription": "/wɑnt/",
+              "notation": "IPA"
+            },
+            {
+              "transcription": "/wɔnt/",
+              "notation": "IPA"
+            },
+            {
+              "transcription": "/wʌnt/",
+              "notation": "IPA"
+            }
+          ],
+          "audio": {
+            "url": "http://audio.linguarobot.io/en/want-us.mp3",
+            "license": {
+              "name": "BY-SA 3.0",
+              "url": "https://creativecommons.org/licenses/by-sa/3.0"
+            },
+            "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=711388"
+          },
+          "context": {
+            "regions": [
+              "United States"
+            ]
+          }
+        }
+      ],
+      "interpretations": [
+        {
+          "lemma": "want",
+          "normalizedLemmas": [
+            {
+              "lemma": "want"
+            }
+          ],
+          "partOfSpeech": "noun",
+          "grammar": [
+            {
+              "number": [
+                "singular"
+              ],
+              "case": [
+                "nominative"
+              ]
+            }
+          ]
+        },
+        {
+          "lemma": "want",
+          "normalizedLemmas": [
+            {
+              "lemma": "want"
+            }
+          ],
+          "partOfSpeech": "verb",
+          "grammar": [
+            {
+              "verbForm": [
+                "infinitive"
+              ]
+            },
+            {
+              "person": [
+                "first-person",
+                "second-person",
+                "third-person"
+              ],
+              "number": [
+                "plural"
+              ],
+              "verbForm": [
+                "finite"
+              ],
+              "tense": [
+                "present"
+              ],
+              "mood": [
+                "indicative"
+              ]
+            },
+            {
+              "person": [
+                "first-person",
+                "second-person",
+                "third-person"
+              ],
+              "number": [
+                "singular",
+                "plural"
+              ],
+              "verbForm": [
+                "finite"
+              ],
+              "mood": [
+                "imperative"
+              ]
+            },
+            {
+              "person": [
+                "first-person",
+                "second-person"
+              ],
+              "number": [
+                "singular"
+              ],
+              "verbForm": [
+                "finite"
+              ],
+              "tense": [
+                "present"
+              ],
+              "mood": [
+                "indicative"
+              ]
+            },
+            {
+              "person": [
+                "first-person",
+                "second-person",
+                "third-person"
+              ],
+              "number": [
+                "singular",
+                "plural"
+              ],
+              "verbForm": [
+                "finite"
+              ],
+              "tense": [
+                "present"
+              ],
+              "mood": [
+                "subjunctive"
+              ]
+            }
+          ]
+        }
+      ],
+      "lexemes": [
+        {
+          "lemma": "want",
+          "partOfSpeech": "noun",
+          "senses": [
+            {
+              "definition": "A desire, wish, longing.",
+              "labels": [
+                "countable"
+              ]
+            },
+            {
+              "definition": "(often followed by of) Lack, absence.",
+              "labels": [
+                "countable"
+              ]
+            },
+            {
+              "definition": "Poverty.",
+              "labels": [
+                "uncountable"
+              ]
+            },
+            {
+              "definition": "Something needed or desired; a thing of which the loss is felt.",
+              "labels": [
+                "countable",
+                "uncountable"
+              ]
+            },
+            {
+              "definition": "A depression in coal strata, hollowed out before the subsequent deposition took place.",
+              "labels": [
+                "countable",
+                "uncountable"
+              ],
+              "context": {
+                "domains": [
+                  "mining"
+                ],
+                "regions": [
+                  "United Kingdom"
+                ]
+              }
+            }
+          ],
+          "forms": [
+            {
+              "form": "wants",
+              "grammar": [
+                {
+                  "number": [
+                    "plural"
+                  ],
+                  "case": [
+                    "nominative"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "lemma": "want",
+          "partOfSpeech": "verb",
+          "senses": [
+            {
+              "definition": "To wish for or desire (something); to feel a need or desire for; to crave or demand.",
+              "labels": [
+                "transitive"
+              ],
+              "usageExamples": [
+                "What do you want to eat?  I want you to leave.  I never wanted to go back to live with my mother.  I want to be an astronaut when I'm older.  I don't want him to marry Gloria, I want him to marry me!  What do you want from me?  Do you want anything from the shops?"
+              ]
+            },
+            {
+              "definition": "(in particular) To wish, desire or demand to see, have the presence of or do business with.",
+              "labels": [
+                "transitive"
+              ],
+              "usageExamples": [
+                "Danish police want him for embezzlement.",
+                "Ma’am, you are exactly the professional we want for this job."
+              ]
+            },
+            {
+              "definition": "To lack and be in need of or require (something, such as a noun or verbal noun).",
+              "labels": [
+                "transitive"
+              ],
+              "usageExamples": [
+                "That chair wants fixing."
+              ]
+            },
+            {
+              "definition": "To lack and be without, to not have (something).",
+              "labels": [
+                "transitive"
+              ]
+            },
+            {
+              "definition": "(by extension, possibly obsolete) To lack and (be able to) do without.",
+              "labels": [
+                "transitive"
+              ]
+            },
+            {
+              "definition": "To have occasion for (something requisite or useful); to require or need.",
+              "labels": [
+                "transitive"
+              ]
+            },
+            {
+              "definition": "To desire (to experience desire); to wish.",
+              "labels": [
+                "intransitive"
+              ],
+              "usageExamples": [
+                "the cat wants back out again; you can leave if you want"
+              ]
+            },
+            {
+              "definition": "To be lacking or deficient or absent.",
+              "labels": [
+                "intransitive",
+                "obsolete"
+              ],
+              "usageExamples": [
+                "There was something wanting in the play."
+              ]
+            },
+            {
+              "definition": "To be in a state of destitution; to be needy; to lack.",
+              "labels": [
+                "intransitive",
+                "obsolete"
+              ]
+            },
+            {
+              "definition": "(usually second person, often future tense) To be advised to do something (compare should, ought).",
+              "labels": [
+                "informal"
+              ],
+              "usageExamples": [
+                "You’ll want to repeat this three or four times to get the best result."
+              ]
+            }
+          ],
+          "forms": [
+            {
+              "form": "wanted",
+              "grammar": [
+                {
+                  "verbForm": [
+                    "participle"
+                  ],
+                  "tense": [
+                    "past"
+                  ]
+                },
+                {
+                  "person": [
+                    "first-person",
+                    "second-person",
+                    "third-person"
+                  ],
+                  "number": [
+                    "singular",
+                    "plural"
+                  ],
+                  "verbForm": [
+                    "finite"
+                  ],
+                  "tense": [
+                    "past"
+                  ],
+                  "mood": [
+                    "indicative"
+                  ]
+                }
+              ]
+            },
+            {
+              "form": "wanting",
+              "grammar": [
+                {
+                  "verbForm": [
+                    "gerund"
+                  ]
+                },
+                {
+                  "verbForm": [
+                    "participle"
+                  ],
+                  "tense": [
+                    "present"
+                  ]
+                }
+              ]
+            },
+            {
+              "form": "wants",
+              "grammar": [
+                {
+                  "person": [
+                    "third-person"
+                  ],
+                  "number": [
+                    "singular"
+                  ],
+                  "verbForm": [
+                    "finite"
+                  ],
+                  "tense": [
+                    "present"
+                  ],
+                  "mood": [
+                    "indicative"
+                  ]
+                }
+              ]
+            },
+            {
+              "form": "wantedst",
+              "grammar": [
+                {
+                  "person": [
+                    "second-person"
+                  ],
+                  "number": [
+                    "singular"
+                  ],
+                  "verbForm": [
+                    "finite"
+                  ],
+                  "tense": [
+                    "present"
+                  ],
+                  "mood": [
+                    "indicative"
+                  ]
+                }
+              ],
+              "labels": [
+                "obsolete"
+              ]
+            },
+            {
+              "form": "wantest",
+              "grammar": [
+                {
+                  "person": [
+                    "second-person"
+                  ],
+                  "number": [
+                    "singular"
+                  ],
+                  "verbForm": [
+                    "finite"
+                  ],
+                  "tense": [
+                    "present"
+                  ],
+                  "mood": [
+                    "indicative"
+                  ]
+                }
+              ],
+              "labels": [
+                "obsolete"
+              ]
+            },
+            {
+              "form": "wanteth",
+              "grammar": [
+                {
+                  "person": [
+                    "third-person"
+                  ],
+                  "number": [
+                    "singular"
+                  ],
+                  "verbForm": [
+                    "finite"
+                  ],
+                  "tense": [
+                    "present"
+                  ],
+                  "mood": [
+                    "indicative"
+                  ]
+                }
+              ],
+              "labels": [
+                "obsolete"
+              ]
+            }
+          ],
+          "synonymSets": [
+            {
+              "sense": "desire",
+              "synonyms": [
+                "set one's heart on",
+                "wish",
+                "would like"
+              ]
+            },
+            {
+              "sense": "lack",
+              "synonyms": [
+                "without"
+              ]
+            },
+            {
+              "sense": "require",
+              "synonyms": [
+                "in need",
+                "need"
+              ]
+            }
+          ]
+        }
+      ],
+      "license": {
+        "name": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "sourceUrls": [
+        "https://en.wiktionary.org/wiki/want"
+      ]
+    }
+  ]
+}

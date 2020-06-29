@@ -36,12 +36,18 @@ public class Strings extends js.util.Strings {
 	// break iterator deals with shorthands but only simple cases
 	// for now is acceptable to have bad sentences breaking
 
-	BreakIterator border = BreakIterator.getSentenceInstance(Locale.US);
-	border.setText(text);
-	int start = border.first();
-	for (int end = border.next(); end != BreakIterator.DONE; start = end, end = border.next()) {
+	BreakIterator it = BreakIterator.getSentenceInstance(Locale.US);
+	it.setText(text);
+	int start = it.first();
+	for (int end = it.next(); end != BreakIterator.DONE; start = end, end = it.next()) {
 	    sentences.add(text.substring(start, end).trim());
 	}
+    }
+
+    public static String firstSentence(String text) {
+	BreakIterator it = BreakIterator.getSentenceInstance(Locale.US);
+	it.setText(text);
+	return text.substring(it.first(), it.next()).trim();
     }
 
     public static String substringAfter(String string, String prefix) {
@@ -69,11 +75,13 @@ public class Strings extends js.util.Strings {
     }
 
     public static String removeReferences(String text) {
-	return text.replaceAll("\\[[^\\]]+\\]", "").replaceAll("  ", " ").replaceAll(" , ", ", ").replaceAll(" \\.", ".");
+	return text.replaceAll("\\[[^\\]]+\\]", "").replaceAll("  ", " ").replaceAll(" , ", ", ").replaceAll(" \\.",
+		".");
     }
 
     public static String removeParentheses(String text) {
-	return text.replaceAll("\\([^\\)]+\\)", "").replaceAll("  ", " ").replaceAll(" , ", ", ").replaceAll(" \\.", ".");
+	return text.replaceAll("\\([^\\)]+\\)", "").replaceAll("  ", " ").replaceAll(" , ", ", ").replaceAll(" \\.",
+		".");
     }
 
     private static Pattern BASE_DOMAIN_PATTERN = Pattern
@@ -171,5 +179,13 @@ public class Strings extends js.util.Strings {
 	    return null;
 	}
 	return Strings.removeReferences(element.getText().trim());
+    }
+
+    public static String removeLastChar(String string) {
+	return string.substring(0, string.length() - 1);
+    }
+
+    public static String replaceLastChar(String string, char character) {
+	return string.substring(0, string.length() - 1) + character;
     }
 }

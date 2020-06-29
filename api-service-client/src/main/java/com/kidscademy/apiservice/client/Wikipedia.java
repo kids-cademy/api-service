@@ -11,7 +11,7 @@ import com.kidscademy.apiservice.model.EdiblePlant;
 import com.kidscademy.apiservice.model.LifeForm;
 
 @Path("wikipedia")
-public interface Wikipedia {
+public interface Wikipedia extends TaxonomyAPI {
     @GET
     @Path("life-form/{name}")
     LifeForm getLifeForm(@PathParam("name") String name);

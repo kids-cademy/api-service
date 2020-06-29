@@ -1,0 +1,399 @@
+{
+  "entries": [
+    {
+      "entry": "structure",
+      "pronunciations": [
+        {
+          "transcriptions": [
+            {
+              "transcription": "[ˈstɹɐktʃə(ɹ)]",
+              "notation": "IPA"
+            },
+            {
+              "transcription": "/ˈstɹʌktʃə(ɹ)/",
+              "notation": "IPA"
+            }
+          ],
+          "context": {
+            "regions": [
+              "United Kingdom"
+            ]
+          }
+        },
+        {
+          "transcriptions": [
+            {
+              "transcription": "/ˈstɹʌktʃɚ/",
+              "notation": "IPA"
+            }
+          ],
+          "audio": {
+            "url": "http://audio.linguarobot.io/en/structure-us.mp3",
+            "license": {
+              "name": "BY-SA 3.0",
+              "url": "https://creativecommons.org/licenses/by-sa/3.0"
+            },
+            "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=1194283"
+          },
+          "context": {
+            "regions": [
+              "United States"
+            ]
+          }
+        }
+      ],
+      "interpretations": [
+        {
+          "lemma": "structure",
+          "normalizedLemmas": [
+            {
+              "lemma": "structure"
+            }
+          ],
+          "partOfSpeech": "noun",
+          "grammar": [
+            {
+              "number": [
+                "singular"
+              ],
+              "case": [
+                "nominative"
+              ]
+            }
+          ]
+        },
+        {
+          "lemma": "structure",
+          "normalizedLemmas": [
+            {
+              "lemma": "structure"
+            }
+          ],
+          "partOfSpeech": "verb",
+          "grammar": [
+            {
+              "verbForm": [
+                "infinitive"
+              ]
+            },
+            {
+              "person": [
+                "first-person",
+                "second-person",
+                "third-person"
+              ],
+              "number": [
+                "plural"
+              ],
+              "verbForm": [
+                "finite"
+              ],
+              "tense": [
+                "present"
+              ],
+              "mood": [
+                "indicative"
+              ]
+            },
+            {
+              "person": [
+                "first-person",
+                "second-person",
+                "third-person"
+              ],
+              "number": [
+                "singular",
+                "plural"
+              ],
+              "verbForm": [
+                "finite"
+              ],
+              "mood": [
+                "imperative"
+              ]
+            },
+            {
+              "person": [
+                "first-person",
+                "second-person"
+              ],
+              "number": [
+                "singular"
+              ],
+              "verbForm": [
+                "finite"
+              ],
+              "tense": [
+                "present"
+              ],
+              "mood": [
+                "indicative"
+              ]
+            },
+            {
+              "person": [
+                "first-person",
+                "second-person",
+                "third-person"
+              ],
+              "number": [
+                "singular",
+                "plural"
+              ],
+              "verbForm": [
+                "finite"
+              ],
+              "tense": [
+                "present"
+              ],
+              "mood": [
+                "subjunctive"
+              ]
+            }
+          ]
+        }
+      ],
+      "lexemes": [
+        {
+          "lemma": "structure",
+          "partOfSpeech": "noun",
+          "senses": [
+            {
+              "definition": "A cohesive whole built up of distinct parts.",
+              "labels": [
+                "countable",
+                "uncountable"
+              ],
+              "usageExamples": [
+                "The birds had built an amazing structure out of sticks and various discarded items."
+              ],
+              "synonyms": [
+                "formation"
+              ]
+            },
+            {
+              "definition": "The underlying shape of a solid.",
+              "labels": [
+                "countable",
+                "uncountable"
+              ],
+              "usageExamples": [
+                "He studied the structure of her face."
+              ],
+              "synonyms": [
+                "formation"
+              ]
+            },
+            {
+              "definition": "The overall form or organization of something.",
+              "labels": [
+                "countable",
+                "uncountable"
+              ],
+              "usageExamples": [
+                "The structure of a sentence.",
+                "The structure of the society was still a mystery."
+              ],
+              "synonyms": [
+                "configuration",
+                "makeup"
+              ]
+            },
+            {
+              "definition": "A set of rules defining behaviour.",
+              "labels": [
+                "countable",
+                "uncountable"
+              ],
+              "usageExamples": [
+                "For some, the structure of school life was oppressive."
+              ]
+            },
+            {
+              "definition": "Several pieces of data treated as a unit.",
+              "labels": [
+                "countable",
+                "uncountable"
+              ],
+              "context": {
+                "domains": [
+                  "computing"
+                ]
+              },
+              "usageExamples": [
+                "This structure contains both date and timezone information."
+              ]
+            },
+            {
+              "definition": "Underwater terrain or objects (such as a dead tree or a submerged car) that tend to attract fish",
+              "labels": [
+                "uncountable"
+              ],
+              "context": {
+                "domains": [
+                  "fishing"
+                ]
+              },
+              "usageExamples": [
+                "There's lots of structure to be fished along the west shore of the lake; the impoundment submerged a town there when it was built."
+              ]
+            },
+            {
+              "definition": "A body, such as a political party, with a cohesive purpose or outlook.",
+              "labels": [
+                "countable",
+                "uncountable"
+              ],
+              "usageExamples": [
+                "The South African leader went off to consult with the structures."
+              ]
+            },
+            {
+              "definition": "A set along with a collection of finitary functions and relations.",
+              "labels": [
+                "countable",
+                "uncountable"
+              ],
+              "context": {
+                "domains": [
+                  "logic"
+                ]
+              }
+            }
+          ],
+          "forms": [
+            {
+              "form": "structures",
+              "grammar": [
+                {
+                  "number": [
+                    "plural"
+                  ],
+                  "case": [
+                    "nominative"
+                  ]
+                }
+              ]
+            }
+          ],
+          "synonymSets": [
+            {
+              "synonyms": [
+                "configuration",
+                "makeup"
+              ]
+            },
+            {
+              "synonyms": [
+                "formation"
+              ]
+            },
+            {
+              "synonyms": [
+                "formation"
+              ]
+            }
+          ]
+        },
+        {
+          "lemma": "structure",
+          "partOfSpeech": "verb",
+          "senses": [
+            {
+              "definition": "To give structure to; to arrange.",
+              "labels": [
+                "transitive"
+              ],
+              "usageExamples": [
+                "I'm trying to structure my time better so I'm not always late.",
+                "I've structured the deal to limit the amount of money we can lose."
+              ]
+            }
+          ],
+          "forms": [
+            {
+              "form": "structured",
+              "grammar": [
+                {
+                  "verbForm": [
+                    "participle"
+                  ],
+                  "tense": [
+                    "past"
+                  ]
+                },
+                {
+                  "person": [
+                    "first-person",
+                    "second-person",
+                    "third-person"
+                  ],
+                  "number": [
+                    "singular",
+                    "plural"
+                  ],
+                  "verbForm": [
+                    "finite"
+                  ],
+                  "tense": [
+                    "past"
+                  ],
+                  "mood": [
+                    "indicative"
+                  ]
+                }
+              ]
+            },
+            {
+              "form": "structures",
+              "grammar": [
+                {
+                  "person": [
+                    "third-person"
+                  ],
+                  "number": [
+                    "singular"
+                  ],
+                  "verbForm": [
+                    "finite"
+                  ],
+                  "tense": [
+                    "present"
+                  ],
+                  "mood": [
+                    "indicative"
+                  ]
+                }
+              ]
+            },
+            {
+              "form": "structuring",
+              "grammar": [
+                {
+                  "verbForm": [
+                    "gerund"
+                  ]
+                },
+                {
+                  "verbForm": [
+                    "participle"
+                  ],
+                  "tense": [
+                    "present"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "license": {
+        "name": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "sourceUrls": [
+        "https://en.wiktionary.org/wiki/structure"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "entry": "carambola",
+      "interpretations": [
+        {
+          "lemma": "carambola",
+          "normalizedLemmas": [
+            {
+              "lemma": "carambola"
+            }
+          ],
+          "partOfSpeech": "noun",
+          "grammar": [
+            {
+              "number": [
+                "singular"
+              ],
+              "case": [
+                "nominative"
+              ]
+            }
+          ]
+        }
+      ],
+      "lexemes": [
+        {
+          "lemma": "carambola",
+          "partOfSpeech": "noun",
+          "senses": [
+            {
+              "definition": "A tree species native of southern Asia, Averrhoa carambola.",
+              "labels": [
+                "countable"
+              ]
+            },
+            {
+              "definition": "The fruit of this tree, more commonly known as star fruit.",
+              "labels": [
+                "countable"
+              ]
+            },
+            {
+              "definition": "A yellow colour, like that of a carambola.",
+              "labels": [
+                "countable"
+              ]
+            }
+          ],
+          "forms": [
+            {
+              "form": "carambolas",
+              "grammar": [
+                {
+                  "number": [
+                    "plural"
+                  ],
+                  "case": [
+                    "nominative"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "license": {
+        "name": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "sourceUrls": [
+        "https://en.wiktionary.org/wiki/carambola"
+      ]
+    }
+  ]
+}

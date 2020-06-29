@@ -1,0 +1,59 @@
+[
+	{
+		"etymology": "From Middle French structure, from Latin struct\u016bra (\u201ca fitting together, adjustment, building, erection, a building, edifice, structure\u201d), from struere, past participle structus (\u201cpile up, arrange, assemble, build\u201d). Compare construct, instruct, destroy, etc.\n",
+		"definitions": [
+			{
+				"partOfSpeech": "noun",
+				"text": [
+					"structure (countable and uncountable, plural structures)",
+					"A cohesive whole built up of distinct parts.",
+					"The underlying shape of a solid.",
+					"The overall form or organization of something.",
+					"A set of rules defining behaviour.",
+					"(computing)\u00a0 Several pieces of data treated as a unit.",
+					"(fishing, uncountable)\u00a0 Underwater terrain or objects (such as a dead tree or a submerged car) that tend to attract fish",
+					"A body, such as a political party, with a cohesive purpose or outlook.",
+					"(logic)\u00a0 A set along with a collection of finitary functions and relations."
+				],
+				"relatedWords": [],
+				"examples": [
+					"Synonym: formation",
+					"The original family who had begun to build a palace to rival Nonesuch had died out before they had put up little more than the gateway, so that the actual structure which had come down to posterity retained the secret magic of a promise rather than the overpowering splendour of a great architectural achievement.",
+					"The birds had built an amazing structure out of sticks and various discarded items.",
+					"Synonym: formation",
+					"He studied the structure of her face.",
+					"Synonyms: makeup, configuration; see also Thesaurus:composition",
+					"Drawings and pictures are more than mere ornaments in scientific discourse. Blackboard sketches, geological maps, diagrams of molecular structure, astronomical photographs, MRI images, the many varieties of statistical charts and graphs: These pictorial devices are indispensable tools for presenting evidence, for explaining a theory, for telling a story.",
+					"The structure of a sentence.",
+					"The structure of the society was still a mystery.",
+					"For some, the structure of school life was oppressive.",
+					"This structure contains both date and timezone information.",
+					"There's lots of structure to be fished along the west shore of the lake; the impoundment submerged a town there when it was built.",
+					"The South African leader went off to consult with the structures."
+				]
+			},
+			{
+				"partOfSpeech": "verb",
+				"text": [
+					"structure (third-person singular simple present structures, present participle structuring, simple past and past participle structured)",
+					"(transitive) To give structure to; to arrange."
+				],
+				"relatedWords": [],
+				"examples": [
+					"I'm trying to structure my time better so I'm not always late.",
+					"I've structured the deal to limit the amount of money we can lose."
+				]
+			}
+		],
+		"pronunciations": {
+			"text": [
+				"(UK) IPA: /\u02c8st\u0279\u028ckt\u0283\u0259(\u0279)/, [\u02c8st\u0279\u0250kt\u0283\u0259(\u0279)]",
+				"(US) IPA: /\u02c8st\u0279\u028ckt\u0283\u025a/"
+			],
+			"audio": [
+				"//upload.wikimedia.org/wikipedia/commons/2/21/En-us-structure.ogg",
+				"//upload.wikimedia.org/wikipedia/commons/transcoded/6/68/LL-Q1860_%28eng%29-Nattes_%C3%A0_chat-structure.wav/LL-Q1860_%28eng%29-Nattes_%C3%A0_chat-structure.wav.ogg"
+			]
+		}
+	}
+]

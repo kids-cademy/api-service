@@ -3,6 +3,7 @@ package com.kidscademy.apiservice;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.ws.rs.GET;
@@ -13,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.kidscademy.apiservice.model.EdiblePlant;
 import com.kidscademy.apiservice.model.LifeForm;
+import com.kidscademy.apiservice.model.WordDefinition;
 import com.kidscademy.apiservice.parser.Parser;
 import com.kidscademy.apiservice.parser.ParserFactory;
 
@@ -23,7 +25,7 @@ import js.util.Params;
 
 @Path("wikipedia")
 @Produces(MediaType.APPLICATION_JSON)
-public class Wikipedia {
+public class Wikipedia implements DefinitionAPI, TaxonomyAPI {
     private final ParserFactory factory;
     private final DocumentBuilder builder;
 
@@ -35,6 +37,16 @@ public class Wikipedia {
     public Wikipedia(ParserFactory factory, DocumentBuilder builder) {
 	this.factory = factory;
 	this.builder = builder;
+    }
+
+    @GET
+    @Path("definitions/{word}")
+    @Override
+    public List<WordDefinition> getDefinitions(@PathParam("word") String word) {
+	Params.notNullOrEmpty(word, "Word");
+	URL url = URL("https://en.wikipedia.org/wiki/", word);
+	Parser<List<WordDefinition>> parser = factory.getParser(url, "definition");
+	return parser.parse(builder.loadHTML(url));
     }
 
     @GET
@@ -57,6 +69,7 @@ public class Wikipedia {
 
     @GET
     @Path("taxonomy/{name}")
+    @Override
     public LinkedHashMap<String, String> getTaxonomy(@PathParam("name") String name) {
 	Params.notNullOrEmpty(name, "Object name");
 	URL url = URL("https://en.wikipedia.org/wiki/", name);

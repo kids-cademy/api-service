@@ -12,10 +12,13 @@ public class ParserFactory {
     private static final Map<Key, Parser<?>> PARSERS = new HashMap<>();
 
     static {
+	PARSERS.put(new Key("wikipedia.org", "definition"), new WikipediaDefinitionParser());
 	PARSERS.put(new Key("wikipedia.org", "life-form"), new WikipediaLifeFormParser());
 	PARSERS.put(new Key("wikipedia.org", "edible-plant"), new WikipediaEdiblePlantParser());
 	PARSERS.put(new Key("wikipedia.org", "taxonomy"), new WikipediaTaxonomyParser());
 	PARSERS.put(new Key("wikipedia.org", "nutritional-value"), new WikipediaNutritionalValueParser());
+	PARSERS.put(new Key("thefreedictionary.com", "definition"), new TheFreeDictionaryParser());
+	PARSERS.put(new Key("ahdictionary.com", "definition"), new TheAmericanHeritageDictionaryParser());
     }
 
     public <T> Parser<T> getParser(URL document, String type) {
