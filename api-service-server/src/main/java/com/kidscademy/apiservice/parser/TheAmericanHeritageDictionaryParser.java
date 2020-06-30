@@ -355,6 +355,7 @@ public class TheAmericanHeritageDictionaryParser implements Parser<List<WordDefi
 
 	private static List<String> DOMAINS = new ArrayList<>();
 	static {
+	    DOMAINS.add("Baseball");
 	    DOMAINS.add("Biology");
 	    DOMAINS.add("Computers");
 	    DOMAINS.add("Nautical");
