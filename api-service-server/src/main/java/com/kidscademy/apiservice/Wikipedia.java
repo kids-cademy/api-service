@@ -4,7 +4,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -50,7 +49,7 @@ public class Wikipedia implements DefinitionAPI, TaxonomyAPI {
     }
 
     @GET
-    @Path("life-form/{name}")
+    @Path("life/{name}")
     public LifeForm getLifeForm(@PathParam("name") String name) {
 	Params.notNullOrEmpty(name, "Life form name");
 	URL url = URL("https://en.wikipedia.org/wiki/", name);
@@ -59,7 +58,7 @@ public class Wikipedia implements DefinitionAPI, TaxonomyAPI {
     }
 
     @GET
-    @Path("edible-plant/{name}")
+    @Path("edible/{name}")
     public EdiblePlant getEdiblePlant(@PathParam("name") String name) {
 	Params.notNullOrEmpty(name, "Life form name");
 	URL url = URL("https://en.wikipedia.org/wiki/", name);
@@ -88,10 +87,10 @@ public class Wikipedia implements DefinitionAPI, TaxonomyAPI {
      */
     @GET
     @Path("nutrients/{name}")
-    public Map<String, Double> getNutrients(@PathParam("name") String name) {
+    public LinkedHashMap<String, Double> getNutrients(@PathParam("name") String name) {
 	Params.notNullOrEmpty(name, "Edible plant name");
 	URL url = URL("https://en.wikipedia.org/wiki/", name);
-	Parser<Map<String, Double>> parser = factory.getParser(url, "nutrients");
+	Parser<LinkedHashMap<String, Double>> parser = factory.getParser(url, "nutrients");
 	return parser.parse(builder.loadHTML(url));
     }
 

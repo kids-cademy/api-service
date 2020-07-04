@@ -1,15 +1,15 @@
 package com.kidscademy.apiservice.model;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 public class EdiblePlant extends LifeForm {
-    private Map<String, Double> nutritionalValue;
+    private LinkedHashMap<String, Double> nutrients;
 
-    public Map<String, Double> getNutritionalValue() {
-	return nutritionalValue;
+    public LinkedHashMap<String, Double> getNutrients() {
+	return nutrients;
     }
 
-    public void setNutritionalValue(Map<String, Double> nutritionalValue) {
-	this.nutritionalValue = nutritionalValue;
+    public void setNutrients(LinkedHashMap<String, Double> nutritionalValue) {
+	this.nutrients = nutritionalValue;
     }
 }

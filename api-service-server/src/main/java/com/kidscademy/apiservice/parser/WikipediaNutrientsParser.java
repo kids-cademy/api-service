@@ -1,6 +1,7 @@
 package com.kidscademy.apiservice.parser;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,11 +12,11 @@ import js.dom.Document;
 import js.dom.EList;
 import js.dom.Element;
 
-public class WikipediaNutrientsParser implements Parser<Map<String, Double>> {
+public class WikipediaNutrientsParser implements Parser<LinkedHashMap<String, Double>> {
 
     @Override
-    public Map<String, Double> parse(Document document) {
-	Map<String, Double> nutritionalValues = new HashMap<>();
+    public LinkedHashMap<String, Double> parse(Document document) {
+	LinkedHashMap<String, Double> nutritionalValues = new LinkedHashMap<>();
 
 	EList infoboxes = document.findByXPath("//TABLE[contains(@class,'infobox')]");
 	for (Element infobox : infoboxes) {
