@@ -2,7 +2,6 @@ package com.kidscademy.apiservice.client;
 
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -18,17 +17,31 @@ public interface Wikipedia extends TaxonomyAPI {
     @Path("definitions/{word}")
     List<WordDefinition> getDefinitions(@PathParam("word") String word);
 
-	@GET
-    @Path("life-form/{name}")
+    /**
+     * Get life form descriptor.
+     * 
+     * @param name
+     *            unique common name for requested life form.
+     * @return life form descriptor.
+     */
+    @GET
+    @Path("life/{name}")
     LifeForm getLifeForm(@PathParam("name") String name);
 
+    /**
+     * Get life form scientific taxonomy.
+     * 
+     * @param name
+     *            unique common name for requested life form.
+     * @return life form descriptor.
+     */
     @GET
-    @Path("edible-plant/{name}")
-    EdiblePlant getEdiblePlant(@PathParam("name") String name);
+    @Path("/life/taxonomy/{name}")
+    LinkedHashMap<String, String> getLifeTaxonomy(@PathParam("name") String name);
 
     @GET
-    @Path("taxonomy/{name}")
-    LinkedHashMap<String, String> getTaxonomy(@PathParam("name") String name);
+    @Path("edible/{name}")
+    EdiblePlant getEdiblePlant(@PathParam("name") String name);
 
     /**
      * Get nutritional value for a particular item of food identified by its unique
@@ -40,6 +53,6 @@ public interface Wikipedia extends TaxonomyAPI {
      * @return nutritional value.
      */
     @GET
-    @Path("nutrients/{name}")
-    Map<String, Double> getNutrients(@PathParam("name") String name);
+    @Path("edible/nutrients/{name}")
+    LinkedHashMap<String, Double> getEdibleNutrients(@PathParam("name") String name);
 }

@@ -39,7 +39,7 @@ public class WikipediaNutrientsParser implements Parser<LinkedHashMap<String, Do
 	    Element row = rows.item(i);
 	    String label = label(row.getByTag("th"));
 	    if (label != null) {
-		Double value = value(row.getByTag("td").getText());
+		Double value = value(label, row.getByTag("td").getText());
 		if (value != null) {
 		    nutritionalValues.put(label, value);
 		}
@@ -76,15 +76,21 @@ public class WikipediaNutrientsParser implements Parser<LinkedHashMap<String, Do
 
     // there are two spellings for micro grams
     // even if in source code seems the same, UTF codes are different
-    private static final Pattern VALUE = Pattern.compile("(\\d+(?:\\.\\d+)?)[\\s\\u00A0]+(kj|g|mg|μg|µg)",
+    private static final Pattern VALUE = Pattern.compile("(\\d+(?:,\\d+)?(?:\\.\\d+)?)[\\s\\u00A0]+(kj|g|mg|μg|µg|IU)",
 	    Pattern.CASE_INSENSITIVE);
 
-    private static Double value(String text) {
+    // IU is a relative measure depending on substance
+    private static final Map<String, Double> IU_FACTOR = new HashMap<>();
+    static {
+	IU_FACTOR.put("Vitamin D", 0.025);
+    }
+
+    private static Double value(String label, String text) {
 	Matcher matcher = VALUE.matcher(text);
 	if (!matcher.find()) {
 	    return null;
 	}
-	double value = Double.parseDouble(matcher.group(1));
+	double value = Double.parseDouble(matcher.group(1).replaceAll(",", ""));
 	// value is a scalar
 	// it represents quantity in grams measured on 100 grams of food
 	// for this we need to convert milli-, micro- and grams to kilograms
@@ -93,13 +99,24 @@ public class WikipediaNutrientsParser implements Parser<LinkedHashMap<String, Do
 	case "g":
 	    value = round(value, 1000000.0);
 	    break;
-	    
+
 	case "mg":
 	    value = round(value, 1000000000.0);
 	    break;
 
-	// there are two spellings for micro grams
-	// even if in source code seems the same, UTF codes are different
+	case "iu":
+	    // IU_FACTOR is for conversion to micrograms
+	    Double factor = IU_FACTOR.get(label);
+	    if (factor == null) {
+		// reject value if measured in International Units but there is no factor
+		// registered
+		return null;
+	    }
+	    value = value * factor;
+	    // fall through next case
+
+	    // there are two spellings for micro grams
+	    // even if in source code seems the same, UTF codes are different
 	case "μg":
 	case "µg":
 	    value = round(value, 1000000000000.0);

@@ -24,7 +24,7 @@ import js.util.Params;
 
 @Path("wikipedia")
 @Produces(MediaType.APPLICATION_JSON)
-public class Wikipedia implements DefinitionAPI, TaxonomyAPI {
+public class Wikipedia {
     private final ParserFactory factory;
     private final DocumentBuilder builder;
 
@@ -40,7 +40,6 @@ public class Wikipedia implements DefinitionAPI, TaxonomyAPI {
 
     @GET
     @Path("definitions/{word}")
-    @Override
     public List<WordDefinition> getDefinitions(@PathParam("word") String word) {
 	Params.notNullOrEmpty(word, "Word");
 	URL url = URL("https://en.wikipedia.org/wiki/", word);
@@ -58,21 +57,20 @@ public class Wikipedia implements DefinitionAPI, TaxonomyAPI {
     }
 
     @GET
+    @Path("life/taxonomy/{name}")
+    public LinkedHashMap<String, String> getLifeTaxonomy(@PathParam("name") String name) {
+	Params.notNullOrEmpty(name, "Object name");
+	URL url = URL("https://en.wikipedia.org/wiki/", name);
+	Parser<LinkedHashMap<String, String>> parser = factory.getParser(url, "taxonomy");
+	return parser.parse(builder.loadHTML(url));
+    }
+
+    @GET
     @Path("edible/{name}")
     public EdiblePlant getEdiblePlant(@PathParam("name") String name) {
 	Params.notNullOrEmpty(name, "Life form name");
 	URL url = URL("https://en.wikipedia.org/wiki/", name);
 	Parser<EdiblePlant> parser = factory.getParser(url, "edible-plant");
-	return parser.parse(builder.loadHTML(url));
-    }
-
-    @GET
-    @Path("taxonomy/{name}")
-    @Override
-    public LinkedHashMap<String, String> getTaxonomy(@PathParam("name") String name) {
-	Params.notNullOrEmpty(name, "Object name");
-	URL url = URL("https://en.wikipedia.org/wiki/", name);
-	Parser<LinkedHashMap<String, String>> parser = factory.getParser(url, "taxonomy");
 	return parser.parse(builder.loadHTML(url));
     }
 
@@ -86,8 +84,8 @@ public class Wikipedia implements DefinitionAPI, TaxonomyAPI {
      * @return nutritional value.
      */
     @GET
-    @Path("nutrients/{name}")
-    public LinkedHashMap<String, Double> getNutrients(@PathParam("name") String name) {
+    @Path("edible/nutrients/{name}")
+    public LinkedHashMap<String, Double> getEdibleNutrients(@PathParam("name") String name) {
 	Params.notNullOrEmpty(name, "Edible plant name");
 	URL url = URL("https://en.wikipedia.org/wiki/", name);
 	Parser<LinkedHashMap<String, Double>> parser = factory.getParser(url, "nutrients");
