@@ -87,11 +87,11 @@ public class Wikipedia implements DefinitionAPI, TaxonomyAPI {
      * @return nutritional value.
      */
     @GET
-    @Path("nutritional-value/{name}")
-    public Map<String, Double> getNutritionalValue(@PathParam("name") String name) {
+    @Path("nutrients/{name}")
+    public Map<String, Double> getNutrients(@PathParam("name") String name) {
 	Params.notNullOrEmpty(name, "Edible plant name");
 	URL url = URL("https://en.wikipedia.org/wiki/", name);
-	Parser<Map<String, Double>> parser = factory.getParser(url, "nutritional-value");
+	Parser<Map<String, Double>> parser = factory.getParser(url, "nutrients");
 	return parser.parse(builder.loadHTML(url));
     }
 

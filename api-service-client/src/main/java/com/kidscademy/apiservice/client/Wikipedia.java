@@ -1,6 +1,7 @@
 package com.kidscademy.apiservice.client;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.ws.rs.GET;
@@ -9,10 +10,15 @@ import javax.ws.rs.PathParam;
 
 import com.kidscademy.apiservice.model.EdiblePlant;
 import com.kidscademy.apiservice.model.LifeForm;
+import com.kidscademy.apiservice.model.WordDefinition;
 
 @Path("wikipedia")
 public interface Wikipedia extends TaxonomyAPI {
     @GET
+    @Path("definitions/{word}")
+    List<WordDefinition> getDefinitions(@PathParam("word") String word);
+
+	@GET
     @Path("life-form/{name}")
     LifeForm getLifeForm(@PathParam("name") String name);
 
@@ -34,6 +40,6 @@ public interface Wikipedia extends TaxonomyAPI {
      * @return nutritional value.
      */
     @GET
-    @Path("nutritional-value/{name}")
-    Map<String, Double> getNutritionalValue(@PathParam("name") String name);
+    @Path("nutrients/{name}")
+    Map<String, Double> getNutrients(@PathParam("name") String name);
 }

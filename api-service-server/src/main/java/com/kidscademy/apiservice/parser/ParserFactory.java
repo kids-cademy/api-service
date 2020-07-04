@@ -16,7 +16,7 @@ public class ParserFactory {
 	PARSERS.put(new Key("wikipedia.org", "life-form"), new WikipediaLifeFormParser());
 	PARSERS.put(new Key("wikipedia.org", "edible-plant"), new WikipediaEdiblePlantParser());
 	PARSERS.put(new Key("wikipedia.org", "taxonomy"), new WikipediaTaxonomyParser());
-	PARSERS.put(new Key("wikipedia.org", "nutritional-value"), new WikipediaNutritionalValueParser());
+	PARSERS.put(new Key("wikipedia.org", "nutrients"), new WikipediaNutrientsParser());
 	PARSERS.put(new Key("thefreedictionary.com", "definition"), new TheFreeDictionaryParser());
 	PARSERS.put(new Key("ahdictionary.com", "definition"), new TheAmericanHeritageDictionaryParser());
     }

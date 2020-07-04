@@ -6,7 +6,7 @@ import js.dom.Document;
 
 class WikipediaEdiblePlantParser implements Parser<EdiblePlant> {
     private final WikipediaLifeFormParser lifeFormParser = new WikipediaLifeFormParser();
-    private final WikipediaNutritionalValueParser nutritionalValueParser = new WikipediaNutritionalValueParser();
+    private final WikipediaNutrientsParser nutritionalValueParser = new WikipediaNutrientsParser();
 
     @Override
     public EdiblePlant parse(Document document) {

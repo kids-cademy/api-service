@@ -11,7 +11,7 @@ import js.dom.Document;
 import js.dom.EList;
 import js.dom.Element;
 
-public class WikipediaNutritionalValueParser implements Parser<Map<String, Double>> {
+public class WikipediaNutrientsParser implements Parser<Map<String, Double>> {
 
     @Override
     public Map<String, Double> parse(Document document) {
@@ -86,17 +86,22 @@ public class WikipediaNutritionalValueParser implements Parser<Map<String, Doubl
 	double value = Double.parseDouble(matcher.group(1));
 	// value is a scalar
 	// it represents quantity in grams measured on 100 grams of food
-	// for this we need to convert milli- and micro- grams to grams
+	// for this we need to convert milli-, micro- and grams to kilograms
+	// value should be in standard units
 	switch (matcher.group(2).toLowerCase()) {
-	case "mg":
+	case "g":
 	    value = round(value, 1000000.0);
+	    break;
+	    
+	case "mg":
+	    value = round(value, 1000000000.0);
 	    break;
 
 	// there are two spellings for micro grams
 	// even if in source code seems the same, UTF codes are different
 	case "μg":
 	case "µg":
-	    value = round(value, 1000000000.0);
+	    value = round(value, 1000000000000.0);
 	    break;
 	}
 	return value;
