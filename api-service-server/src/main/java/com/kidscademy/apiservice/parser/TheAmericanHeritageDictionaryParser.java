@@ -370,6 +370,7 @@ public class TheAmericanHeritageDictionaryParser implements Parser<List<WordDefi
 	    ATTRIBUTES.add("Chiefly British");
 	    ATTRIBUTES.add("Informal");
 	    ATTRIBUTES.add("Obsolete");
+	    ATTRIBUTES.add("Offensive");
 	    ATTRIBUTES.add("Scots");
 	    ATTRIBUTES.add("Slang");
 	    ATTRIBUTES.add("Vulgar");
