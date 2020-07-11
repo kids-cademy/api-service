@@ -225,6 +225,37 @@ public class WikipediaNutrientsParserTest {
 	assertThat(nutrients.get("Zinc"), equalTo(0.00000239));
     }
 
+    @Test
+    public void parse_jujube() {
+	Document document = builder.loadHTML(Classes.getResourceAsStream("wikipedia-jujube.htm"));
+	Parser<Map<String, Double>> parser = getParser();
+	Map<String, Double> nutrients = parser.parse(document);
+
+	assertThat(nutrients, notNullValue());
+	assertThat(nutrients.get("Energy"), equalTo(331.0));
+	assertThat(nutrients.get("Calories"), equalTo(79.109));
+
+	assertThat(nutrients.get("Carbohydrates"), equalTo(0.02023));
+	assertThat(nutrients.get("Fat"), equalTo(0.0002));
+	assertThat(nutrients.get("Protein"), equalTo(0.0012));
+
+	assertThat(nutrients.get("Vitamin A"), equalTo(0.00000004));
+	assertThat(nutrients.get("Thiamine"), equalTo(0.00000002));
+	assertThat(nutrients.get("Riboflavin"), equalTo(0.00000004));
+	assertThat(nutrients.get("Niacin"), equalTo(0.0000009));
+	assertThat(nutrients.get("Vitamin B6"), equalTo(0.000000081));
+	assertThat(nutrients.get("Vitamin C"), equalTo(0.000069));
+
+	assertThat(nutrients.get("Calcium"), equalTo(0.000021));
+	assertThat(nutrients.get("Iron"), equalTo(0.00000048));
+	assertThat(nutrients.get("Magnesium"), equalTo(0.00001));
+	assertThat(nutrients.get("Manganese"), equalTo(0.000000084));
+	assertThat(nutrients.get("Phosphorus"), equalTo(0.000023));
+	assertThat(nutrients.get("Potassium"), equalTo(0.00025));
+	assertThat(nutrients.get("Sodium"), equalTo(0.000003));
+	assertThat(nutrients.get("Zinc"), equalTo(0.00000005));
+    }
+    
     private static Parser<Map<String, Double>> getParser() {
 	return Classes.newInstance("com.kidscademy.apiservice.parser.WikipediaNutrientsParser");
     }

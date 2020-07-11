@@ -39,9 +39,12 @@ public class WikipediaNutrientsParser implements Parser<LinkedHashMap<String, Do
 	    Element row = rows.item(i);
 	    String label = label(row.getByTag("th"));
 	    if (label != null) {
-		Double value = value(label, row.getByTag("td").getText());
-		if (value != null) {
-		    nutritionalValues.put(label, value);
+		Element valueElement = row.getByTag("td");
+		if (valueElement != null) {
+		    Double value = value(label, valueElement.getText());
+		    if (value != null) {
+			nutritionalValues.put(label, value);
+		    }
 		}
 	    }
 	}
