@@ -26,22 +26,28 @@ public class AnimaliaPhysicalTraitsParser implements Parser<List<PhysicalTrait>>
 
 	    List<String> valueParts = Strings.split(traitValue, '-', ' ');
 	    Meta meta = null;
-	    switch (valueParts.size()) {
-	    case 1:
-		meta = new Meta("SCALAR", 1.0);
-		traits.add(new PhysicalTrait(traitName, parseDouble(traitValue, meta), meta.quantity));
-		break;
 
-	    case 2:
-		meta = meta(valueParts.get(1));
-		traits.add(new PhysicalTrait(traitName, parseDouble(valueParts.get(0), meta), meta.quantity));
-		break;
+	    try {
+		switch (valueParts.size()) {
+		case 1:
+		    meta = new Meta("SCALAR", 1.0);
+		    traits.add(new PhysicalTrait(traitName, parseDouble(traitValue, meta), meta.quantity));
+		    break;
 
-	    case 3:
-		meta = meta(valueParts.get(2));
-		traits.add(new PhysicalTrait(traitName, parseDouble(valueParts.get(0), meta),
-			parseDouble(valueParts.get(1), meta), meta.quantity));
-		break;
+		case 2:
+		    meta = meta(valueParts.get(1));
+		    traits.add(new PhysicalTrait(traitName, parseDouble(valueParts.get(0), meta), meta.quantity));
+		    break;
+
+		case 3:
+		    meta = meta(valueParts.get(2));
+		    traits.add(new PhysicalTrait(traitName, parseDouble(valueParts.get(0), meta),
+			    parseDouble(valueParts.get(1), meta), meta.quantity));
+		    break;
+		}
+	    } catch (NumberFormatException ignore) {
+		// on number format error ignore trait element
+		// possible cause is 'UNKNOWN' value, for example for population size
 	    }
 	}
 
@@ -53,6 +59,7 @@ public class AnimaliaPhysicalTraitsParser implements Parser<List<PhysicalTrait>>
 	NAME.put("Population size", "population.size");
 	NAME.put("Life Span", "lifespan");
 	NAME.put("TOP SPEED", "speed.full");
+	NAME.put("HEIGHT", "height");
 	NAME.put("WEIGHT", "weight");
 	NAME.put("LENGTH", "length");
     }
@@ -83,7 +90,7 @@ public class AnimaliaPhysicalTraitsParser implements Parser<List<PhysicalTrait>>
 	return meta;
     }
 
-    private static double parseDouble(String value, Meta meta) {
+    private static Double parseDouble(String value, Meta meta) {
 	return round(Double.parseDouble(value.replaceAll(",", "")) * meta.factor);
     }
 

@@ -12,7 +12,7 @@ import com.kidscademy.apiservice.model.LifeForm;
 import com.kidscademy.apiservice.model.WordDefinition;
 
 @Path("wikipedia")
-public interface Wikipedia extends TaxonomyAPI {
+public interface Wikipedia {
     @GET
     @Path("definitions/{word}")
     List<WordDefinition> getDefinitions(@PathParam("word") String word);
