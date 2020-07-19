@@ -19,7 +19,12 @@ public class AnimaliaPhysicalTraitsParser implements Parser<List<PhysicalTrait>>
     public List<PhysicalTrait> parse(Document document) {
 	List<PhysicalTrait> traits = new ArrayList<>();
 
-	for (Element traitElement : document.findByCssClass("s-char-char__wrap")) {
+	EList traitElements = document.findByCssClass("s-char-char__wrap");
+	if (traitElements.isEmpty()) {
+	    traitElements = document.findByXPath("//DIV[@class='s-char-char__block']/DIV[@class='row']/DIV[@class='col-6']");
+	}
+
+	for (Element traitElement : traitElements) {
 	    EList children = traitElement.getChildren();
 	    String traitName = name(children.item(0).getText());
 	    String traitValue = children.item(1).getText();
