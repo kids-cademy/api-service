@@ -19,6 +19,8 @@ public class ParserFactory {
 	PARSERS.put(new Key("wikipedia.org", "nutrients"), new WikipediaNutrientsParser());
 	PARSERS.put(new Key("thefreedictionary.com", "definition"), new TheFreeDictionaryParser());
 	PARSERS.put(new Key("ahdictionary.com", "definition"), new TheAmericanHeritageDictionaryParser());
+	PARSERS.put(new Key("animalia.bio", "taxonomy"), new AnimaliaTaxonomyParser());
+	PARSERS.put(new Key("animalia.bio", "traits"), new AnimaliaPhysicalTraitsParser());
     }
 
     public <T> Parser<T> getParser(URL document, String type) {

@@ -21,7 +21,7 @@ import js.util.Params;
 
 @Path("free-dictionary")
 @Produces(MediaType.APPLICATION_JSON)
-public class TheFreeDictionary implements DefinitionAPI {
+public class TheFreeDictionary {
     private final ParserFactory factory;
     private final DocumentBuilder builder;
 
@@ -37,7 +37,6 @@ public class TheFreeDictionary implements DefinitionAPI {
 
     @GET
     @Path("{word}")
-    @Override
     public List<WordDefinition> getDefinitions(@PathParam("word") String word) {
 	Params.notNullOrEmpty(word, "Word");
 	URL url = URL("https://www.thefreedictionary.com/", word);

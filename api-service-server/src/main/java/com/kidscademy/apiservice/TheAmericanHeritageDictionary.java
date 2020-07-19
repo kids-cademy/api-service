@@ -21,7 +21,7 @@ import js.util.Params;
 
 @Path("ahdictionary")
 @Produces(MediaType.APPLICATION_JSON)
-public class TheAmericanHeritageDictionary implements DefinitionAPI {
+public class TheAmericanHeritageDictionary {
     private final ParserFactory factory;
     private final DocumentBuilder builder;
 
@@ -37,7 +37,6 @@ public class TheAmericanHeritageDictionary implements DefinitionAPI {
 
     @GET
     @Path("definitions/{word}")
-    @Override
     public List<WordDefinition> getDefinitions(@PathParam("word") String word) {
 	Params.notNullOrEmpty(word, "Word");
 	URL url = URL("https://www.ahdictionary.com/word/search.html?q=", word);

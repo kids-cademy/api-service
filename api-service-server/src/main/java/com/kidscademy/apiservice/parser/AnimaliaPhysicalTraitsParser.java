@@ -1,0 +1,103 @@
+package com.kidscademy.apiservice.parser;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.kidscademy.apiservice.model.PhysicalTrait;
+
+import js.dom.Document;
+import js.dom.EList;
+import js.dom.Element;
+import js.lang.BugError;
+import js.util.Strings;
+
+public class AnimaliaPhysicalTraitsParser implements Parser<List<PhysicalTrait>> {
+
+    @Override
+    public List<PhysicalTrait> parse(Document document) {
+	List<PhysicalTrait> traits = new ArrayList<>();
+
+	for (Element traitElement : document.findByCssClass("s-char-char__wrap")) {
+	    EList children = traitElement.getChildren();
+	    String traitName = name(children.item(0).getText());
+	    String traitValue = children.item(1).getText();
+
+	    List<String> valueParts = Strings.split(traitValue, '-', ' ');
+	    Meta meta = null;
+	    switch (valueParts.size()) {
+	    case 1:
+		meta = new Meta("SCALAR", 1.0);
+		traits.add(new PhysicalTrait(traitName, parseDouble(traitValue, meta), meta.quantity));
+		break;
+
+	    case 2:
+		meta = meta(valueParts.get(1));
+		traits.add(new PhysicalTrait(traitName, parseDouble(valueParts.get(0), meta), meta.quantity));
+		break;
+
+	    case 3:
+		meta = meta(valueParts.get(2));
+		traits.add(new PhysicalTrait(traitName, parseDouble(valueParts.get(0), meta),
+			parseDouble(valueParts.get(1), meta), meta.quantity));
+		break;
+	    }
+	}
+
+	return traits;
+    }
+
+    private static Map<String, String> NAME = new HashMap<>();
+    static {
+	NAME.put("Population size", "population.size");
+	NAME.put("Life Span", "lifespan");
+	NAME.put("TOP SPEED", "speed.full");
+	NAME.put("WEIGHT", "weight");
+	NAME.put("LENGTH", "length");
+    }
+
+    private static String name(String name) {
+	String normalizedName = NAME.get(name);
+	if (normalizedName == null) {
+	    throw new BugError("Not handled name |%s|.", name);
+	}
+	return normalizedName;
+    }
+
+    private static Map<String, Meta> META = new HashMap<>();
+    static {
+	META.put("YRS", new Meta("TIME", 31556952.0));
+	META.put("KM/H", new Meta("SPEED", 1.0 / 3.6));
+	META.put("KG", new Meta("MASS", 1.0));
+	META.put("T", new Meta("MASS", 1000));
+	META.put("CM", new Meta("LENGTH", 0.01));
+	META.put("M", new Meta("LENGTH", 1.0));
+    }
+
+    private static Meta meta(String units) {
+	Meta meta = META.get(units.toUpperCase());
+	if (meta == null) {
+	    throw new BugError("Not handled units |%s|.", units);
+	}
+	return meta;
+    }
+
+    private static double parseDouble(String value, Meta meta) {
+	return round(Double.parseDouble(value.replaceAll(",", "")) * meta.factor);
+    }
+
+    private static double round(double value) {
+	return Math.round(value * 1000.0) / 1000.0;
+    }
+
+    private static class Meta {
+	final String quantity;
+	final double factor;
+
+	public Meta(String quantity, double factor) {
+	    this.quantity = quantity;
+	    this.factor = factor;
+	}
+    }
+}
