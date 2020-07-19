@@ -107,6 +107,31 @@ public class WikipediaTaxonomyParserTest {
 	assertThat(keys.next(), equalTo("species"));
     }
 
+
+    @Test
+    public void parse_artichoke() {
+	Document document = builder.loadHTML(Classes.getResourceAsStream("wikipedia-artichoke.htm"));
+	Parser<LinkedHashMap<String, String>> parser = getParser();
+	LinkedHashMap<String, String> taxonomy = parser.parse(document);
+
+	assertThat(taxonomy, notNullValue());
+	assertThat(taxonomy, aMapWithSize(6));
+	assertThat(taxonomy.get("kingdom"), equalTo("Plantae"));
+	assertThat(taxonomy.get("order"), equalTo("Asterales"));
+	assertThat(taxonomy.get("family"), equalTo("Asteraceae"));
+	assertThat(taxonomy.get("genus"), equalTo("Cynara"));
+	assertThat(taxonomy.get("species"), equalTo("Cardunculus"));
+	assertThat(taxonomy.get("variety"), equalTo("Scolymus"));
+
+	Iterator<String> keys = taxonomy.keySet().iterator();
+	assertThat(keys.next(), equalTo("kingdom"));
+	assertThat(keys.next(), equalTo("order"));
+	assertThat(keys.next(), equalTo("family"));
+	assertThat(keys.next(), equalTo("genus"));
+	assertThat(keys.next(), equalTo("species"));
+	assertThat(keys.next(), equalTo("variety"));
+    }
+    
     private static Parser<LinkedHashMap<String, String>> getParser() {
 	return Classes.newInstance("com.kidscademy.apiservice.parser.WikipediaTaxonomyParser");
     }

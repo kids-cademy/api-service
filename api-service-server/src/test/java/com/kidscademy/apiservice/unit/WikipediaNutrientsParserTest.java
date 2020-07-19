@@ -255,6 +255,42 @@ public class WikipediaNutrientsParserTest {
 	assertThat(nutrients.get("Sodium"), equalTo(0.000003));
 	assertThat(nutrients.get("Zinc"), equalTo(0.00000005));
     }
+
+    @Test
+    public void parse_artichoke() {
+	Document document = builder.loadHTML(Classes.getResourceAsStream("wikipedia-artichoke.htm"));
+	Parser<Map<String, Double>> parser = getParser();
+	Map<String, Double> nutrients = parser.parse(document);
+
+	assertThat(nutrients, notNullValue());
+	assertThat(nutrients.get("Energy"), equalTo(211.0));
+	assertThat(nutrients.get("Calories"), equalTo(50.429));
+
+	assertThat(nutrients.get("Carbohydrates"), equalTo(0.01139));
+	assertThat(nutrients.get("Sugars"), equalTo(0.00099));
+	assertThat(nutrients.get("Dietary Fiber"), equalTo(0.0086));
+	assertThat(nutrients.get("Fat"), equalTo(0.00034));
+	assertThat(nutrients.get("Protein"), equalTo(0.00289));
+
+	assertThat(nutrients.get("Vitamin A"), equalTo(0.000000464));
+	assertThat(nutrients.get("Thiamine"), equalTo(0.00000005));
+	assertThat(nutrients.get("Riboflavin"), equalTo(0.000000089));
+	assertThat(nutrients.get("Niacin"), equalTo(0.00000111));
+	assertThat(nutrients.get("Vitamin B6"), equalTo(0.000000081));
+	assertThat(nutrients.get("Folate"), equalTo(0.000000089));
+	assertThat(nutrients.get("Vitamin C"), equalTo(0.0000074));
+	assertThat(nutrients.get("Vitamin E"), equalTo(0.00000019));
+	assertThat(nutrients.get("Vitamin K"), equalTo(0.0000000148));
+
+	assertThat(nutrients.get("Calcium"), equalTo(0.000021));
+	assertThat(nutrients.get("Iron"), equalTo(0.00000061));
+	assertThat(nutrients.get("Magnesium"), equalTo(0.000042));
+	assertThat(nutrients.get("Manganese"), equalTo(0.000000225));
+	assertThat(nutrients.get("Phosphorus"), equalTo(0.000073));
+	assertThat(nutrients.get("Potassium"), equalTo(0.000286));
+	assertThat(nutrients.get("Sodium"), equalTo(0.000296));
+	assertThat(nutrients.get("Zinc"), equalTo(0.0000004));
+    }
     
     private static Parser<Map<String, Double>> getParser() {
 	return Classes.newInstance("com.kidscademy.apiservice.parser.WikipediaNutrientsParser");

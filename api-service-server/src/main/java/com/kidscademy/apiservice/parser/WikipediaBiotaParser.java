@@ -19,7 +19,7 @@ class WikipediaBiotaParser implements Parser<WikipediaBiota> {
     @Override
     public WikipediaBiota parse(Document document) {
 	WikipediaBiota biota = new WikipediaBiota();
-	
+
 	EList biotaTable = document.findByXPath("//TABLE[contains(@class,'biota')]/TBODY/TR");
 
 	BiotaSection section = BiotaSection.NONE;
@@ -48,6 +48,8 @@ class WikipediaBiotaParser implements Parser<WikipediaBiota> {
 
 		case TRINOMIAL:
 		    trinomialName = true;
+		    scientificName = Strings.text(element.getByTag("B"));
+		    break;
 
 		case BINOMIAL:
 		case SPECIES:
@@ -153,6 +155,16 @@ class WikipediaBiotaParser implements Parser<WikipediaBiota> {
 	    return null;
 	}
 
+	// scientific name contains variety
+	if (scientificName.contains("var.")) {
+	    String[] parts = scientificName.split(" ");
+	    parts[1] = Strings.toTitleCase(parts[1]);
+	    parts[3] = Strings.toTitleCase(parts[3]);
+	    updateTaxon(taxonomy, "species", parts[1]);
+	    updateTaxon(taxonomy, "variety", parts[3]);
+	    return Strings.join(parts);
+	}
+
 	// normalize scientific name
 	// it can happen to have scientific name using shorthand for genus
 	if (scientificName.contains(".")) {
@@ -179,32 +191,30 @@ class WikipediaBiotaParser implements Parser<WikipediaBiota> {
 	}
 
 	// it seems there is convention to use both genus and species for species taxon
-	// kids (a)cademy uses only simple species name and uses qualified name for
+	// this implementation uses only simple species name and uses qualified name for
 	// binomial and trinomial names, aka scientific name
 	// the same for sub-species
 
 	speciesValue = Strings.toTitleCase(Strings.last(speciesValue, ' '));
-	Map.Entry<String, String> species = taxon(taxonomy, "species");
-	if (species != null) {
-	    species.setValue(speciesValue);
-	} else {
-	    species = new AbstractMap.SimpleEntry<>("species", speciesValue);
-	    taxonomy.put(species.getKey(), species.getValue());
-	}
+	updateTaxon(taxonomy, "species", speciesValue);
 
 	if (subspeciesValue == null) {
 	    return scientificName;
 	}
 	subspeciesValue = Strings.toTitleCase(Strings.last(subspeciesValue, ' '));
-	Map.Entry<String, String> subspecies = taxon(taxonomy, "subspecies");
-	if (subspecies != null) {
-	    subspecies.setValue(subspeciesValue);
-	} else {
-	    subspecies = new AbstractMap.SimpleEntry<>("subspecies", subspeciesValue);
-	    taxonomy.entrySet().add(subspecies);
-	}
+	updateTaxon(taxonomy, "subspecies", subspeciesValue);
 
 	return scientificName;
+    }
+
+    private static void updateTaxon(Map<String, String> taxonomy, String taxonName, String taxonValue) {
+	Map.Entry<String, String> taxon = taxon(taxonomy, taxonName);
+	if (taxon != null) {
+	    taxon.setValue(taxonValue);
+	} else {
+	    taxon = new AbstractMap.SimpleEntry<>(taxonName, taxonValue);
+	    taxonomy.put(taxon.getKey(), taxon.getValue());
+	}
     }
 
     private static Map.Entry<String, String> taxon(Map<String, String> taxonomy, String taxonName) {
@@ -240,9 +250,16 @@ class WikipediaBiotaParser implements Parser<WikipediaBiota> {
 
     private static String text(Element element, String[] xpaths) {
 	for (String xpath : xpaths) {
+	    boolean strict = true;
+	    if (xpath.charAt(0) == '~') {
+		strict = false;
+		xpath = xpath.substring(1);
+	    }
+
 	    Element textElement = element.getByXPath(xpath);
 	    if (textElement != null) {
-		String text = textElement.getTextContent().trim();
+		String text = strict ? textElement.getTextContent() : textElement.getText();
+		text = text.trim();
 		if (!text.isEmpty()) {
 		    return text;
 		}
@@ -330,16 +347,21 @@ class WikipediaBiotaParser implements Parser<WikipediaBiota> {
 
     /**
      * Possible XPaths of descendant of the biota table row that contains taxon
-     * value. This values are depends on article source page structure and should be
+     * value. Text value is extracted exactly, that is, uses
+     * {@link Element#getTextContent()}. Anyway, if XPath starts with '~' uses more
+     * generic {@link Element#getText()} text getter.
+     * <p>
+     * This values are depends on article source page structure and should be
      * maintained.
      * <p>
-     * This list cannot be exhaustive. Is quite possible to upgrade it when new
-     * variants will be discovered.
+     * Also, this list cannot be exhaustive. Is quite possible to upgrade it when
+     * new variants will be discovered.
      */
     private static final String[] TAXON_XPATHS = new String[] { //
 	    "TD[2]/A", //
 	    "TD[2]/A/I", //
 	    "TD[2]/DIV/I/A", //
-	    "TD[2]/DIV/I/B" //
+	    "TD[2]/DIV/I/B", //
+	    "~TD[2]/DIV/B" //
     };
 }

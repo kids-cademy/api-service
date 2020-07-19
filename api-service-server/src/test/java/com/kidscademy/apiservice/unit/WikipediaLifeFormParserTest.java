@@ -146,6 +146,42 @@ public class WikipediaLifeFormParserTest {
 	assertThat(keys.next(), equalTo("species"));
     }
 
+    @Test
+    public void parse_artichoke() {
+	Document document = builder.loadHTML(Classes.getResourceAsStream("wikipedia-artichoke.htm"));
+	Parser<LifeForm> parser = getParser();
+	LifeForm lifeForm = parser.parse(document);
+
+	assertThat(lifeForm, notNullValue());
+	assertThat(lifeForm.getCommonName(), equalTo("Artichoke"));
+	assertThat(lifeForm.getScientificName(), equalTo("Cynara Cardunculus var. Scolymus"));
+	assertThat(lifeForm.getDefinition(),
+		startsWith("The globe artichoke, also known by the names French artichoke and green artichoke"));
+	assertThat(lifeForm.getDescription().get(0), startsWith(
+		"The globe artichoke (Cynara cardunculus var. scolymus), also known by the names French artichoke and green artichoke"));
+	assertThat(lifeForm.getStartDate(), nullValue());
+	assertThat(lifeForm.getEndDate(), nullValue());
+	assertThat(lifeForm.getConservationStatus(), nullValue());
+
+	Map<String, String> taxonomy = lifeForm.getTaxonomy();
+	assertThat(taxonomy, notNullValue());
+	assertThat(taxonomy, aMapWithSize(6));
+	assertThat(taxonomy.get("kingdom"), equalTo("Plantae"));
+	assertThat(taxonomy.get("order"), equalTo("Asterales"));
+	assertThat(taxonomy.get("family"), equalTo("Asteraceae"));
+	assertThat(taxonomy.get("genus"), equalTo("Cynara"));
+	assertThat(taxonomy.get("species"), equalTo("Cardunculus"));
+	assertThat(taxonomy.get("variety"), equalTo("Scolymus"));
+
+	Iterator<String> keys = taxonomy.keySet().iterator();
+	assertThat(keys.next(), equalTo("kingdom"));
+	assertThat(keys.next(), equalTo("order"));
+	assertThat(keys.next(), equalTo("family"));
+	assertThat(keys.next(), equalTo("genus"));
+	assertThat(keys.next(), equalTo("species"));
+	assertThat(keys.next(), equalTo("variety"));
+    }
+
     private static Parser<LifeForm> getParser() {
 	return Classes.newInstance("com.kidscademy.apiservice.parser.WikipediaLifeFormParser");
     }
