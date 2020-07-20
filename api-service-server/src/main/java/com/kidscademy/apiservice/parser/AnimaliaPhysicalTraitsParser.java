@@ -21,7 +21,8 @@ public class AnimaliaPhysicalTraitsParser implements Parser<List<PhysicalTrait>>
 
 	EList traitElements = document.findByCssClass("s-char-char__wrap");
 	if (traitElements.isEmpty()) {
-	    traitElements = document.findByXPath("//DIV[@class='s-char-char__block']/DIV[@class='row']/DIV[@class='col-6']");
+	    traitElements = document
+		    .findByXPath("//DIV[@class='s-char-char__block']/DIV[@class='row']/DIV[@class='col-6']");
 	}
 
 	for (Element traitElement : traitElements) {
@@ -29,25 +30,25 @@ public class AnimaliaPhysicalTraitsParser implements Parser<List<PhysicalTrait>>
 	    String traitName = name(children.item(0).getText());
 	    String traitValue = children.item(1).getText();
 
-	    List<String> valueParts = Strings.split(traitValue, '-', ' ');
+	    String[] valueParts = parts(traitValue);
 	    Meta meta = null;
 
 	    try {
-		switch (valueParts.size()) {
+		switch (valueParts.length) {
 		case 1:
 		    meta = new Meta("SCALAR", 1.0);
 		    traits.add(new PhysicalTrait(traitName, parseDouble(traitValue, meta), meta.quantity));
 		    break;
 
 		case 2:
-		    meta = meta(valueParts.get(1));
-		    traits.add(new PhysicalTrait(traitName, parseDouble(valueParts.get(0), meta), meta.quantity));
+		    meta = meta(valueParts[1]);
+		    traits.add(new PhysicalTrait(traitName, parseDouble(valueParts[0], meta), meta.quantity));
 		    break;
 
 		case 3:
-		    meta = meta(valueParts.get(2));
-		    traits.add(new PhysicalTrait(traitName, parseDouble(valueParts.get(0), meta),
-			    parseDouble(valueParts.get(1), meta), meta.quantity));
+		    meta = meta(valueParts[2]);
+		    traits.add(new PhysicalTrait(traitName, parseDouble(valueParts[0], meta),
+			    parseDouble(valueParts[1], meta), meta.quantity));
 		    break;
 		}
 	    } catch (NumberFormatException ignore) {
@@ -57,6 +58,11 @@ public class AnimaliaPhysicalTraitsParser implements Parser<List<PhysicalTrait>>
 	}
 
 	return traits;
+    }
+
+    private static String[] parts(String value) {
+	value = value.toUpperCase().replace(" TO ", "-");
+	return Strings.split(value, '-', ' ').toArray(new String[0]);
     }
 
     private static Map<String, String> NAME = new HashMap<>();

@@ -97,7 +97,7 @@ public class AnimaliaPhysicalTraitsParserTest {
     }
 
     @Test
-    public void parse_african_tiger() {
+    public void parse_tiger() {
 	Document document = builder.loadHTML(Classes.getResourceAsStream("animalia-tiger.htm"));
 	Parser<List<PhysicalTrait>> parser = getParser();
 	List<PhysicalTrait> traits = parser.parse(document);
@@ -124,6 +124,41 @@ public class AnimaliaPhysicalTraitsParserTest {
 	assertThat(traits.get(3).getQuantity(), equalTo("LENGTH"));
 	assertThat(traits.get(3).getValue(), equalTo(2.0));
 	assertThat(traits.get(3).getMaximum(), equalTo(3.9));
+    }
+
+    @Test
+    public void parse_wildcat() {
+	Document document = builder.loadHTML(Classes.getResourceAsStream("animalia-wildcat.htm"));
+	Parser<List<PhysicalTrait>> parser = getParser();
+	List<PhysicalTrait> traits = parser.parse(document);
+
+	assertThat(traits, notNullValue());
+	assertThat(traits, hasSize(5));
+
+	assertThat(traits.get(0).getName(), equalTo("lifespan"));
+	assertThat(traits.get(0).getQuantity(), equalTo("TIME"));
+	assertThat(traits.get(0).getValue(), equalTo(473354280.0));
+	assertThat(traits.get(0).getMaximum(), nullValue());
+
+	assertThat(traits.get(1).getName(), equalTo("speed.full"));
+	assertThat(traits.get(1).getQuantity(), equalTo("SPEED"));
+	assertThat(traits.get(1).getValue(), equalTo(13.411));
+	assertThat(traits.get(1).getMaximum(), nullValue());
+
+	assertThat(traits.get(2).getName(), equalTo("weight"));
+	assertThat(traits.get(2).getQuantity(), equalTo("MASS"));
+	assertThat(traits.get(2).getValue(), equalTo(5.0));
+	assertThat(traits.get(2).getMaximum(), equalTo(8.0));
+
+	assertThat(traits.get(3).getName(), equalTo("height"));
+	assertThat(traits.get(3).getQuantity(), equalTo("LENGTH"));
+	assertThat(traits.get(3).getValue(), equalTo(0.2));
+	assertThat(traits.get(3).getMaximum(), nullValue());
+
+	assertThat(traits.get(4).getName(), equalTo("length"));
+	assertThat(traits.get(4).getQuantity(), equalTo("LENGTH"));
+	assertThat(traits.get(4).getValue(), equalTo(0.43));
+	assertThat(traits.get(4).getMaximum(), equalTo(0.91));
     }
 
     private static Parser<List<PhysicalTrait>> getParser() {
