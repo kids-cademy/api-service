@@ -80,7 +80,9 @@ public class AnimaliaPhysicalTraitsParser implements Parser<List<PhysicalTrait>>
     private static Map<String, Meta> META = new HashMap<>();
     static {
 	META.put("YRS", new Meta("TIME", 31556952.0));
+	META.put("YEARS", new Meta("TIME", 31556952.0));
 	META.put("KM/H", new Meta("SPEED", 1.0 / 3.6));
+	META.put("MPH", new Meta("SPEED", 1.0 / 2.23693629));
 	META.put("KG", new Meta("MASS", 1.0));
 	META.put("T", new Meta("MASS", 1000));
 	META.put("CM", new Meta("LENGTH", 0.01));
