@@ -37,7 +37,7 @@ public class AnimaliaPhysicalTraitsParser implements Parser<List<PhysicalTrait>>
 		switch (valueParts.length) {
 		case 1:
 		    meta = new Meta("SCALAR", 1.0);
-		    traits.add(new PhysicalTrait(traitName, parseDouble(traitValue, meta), meta.quantity));
+		    traits.add(new PhysicalTrait(traitName, parseDouble(valueParts[0], meta), meta.quantity));
 		    break;
 
 		case 2:
@@ -61,7 +61,9 @@ public class AnimaliaPhysicalTraitsParser implements Parser<List<PhysicalTrait>>
     }
 
     private static String[] parts(String value) {
-	value = value.toUpperCase().replace(" TO ", "-");
+	value = value.toUpperCase();
+	value = value.replace("BELOW ", "");
+	value = value.replace(" TO ", "-");
 	return Strings.split(value, '-', ' ').toArray(new String[0]);
     }
 

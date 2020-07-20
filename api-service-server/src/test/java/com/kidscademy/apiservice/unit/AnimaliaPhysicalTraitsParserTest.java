@@ -161,6 +161,41 @@ public class AnimaliaPhysicalTraitsParserTest {
 	assertThat(traits.get(4).getMaximum(), equalTo(0.91));
     }
 
+    @Test
+    public void parse_andean_cat() {
+	Document document = builder.loadHTML(Classes.getResourceAsStream("animalia-andean-cat.htm"));
+	Parser<List<PhysicalTrait>> parser = getParser();
+	List<PhysicalTrait> traits = parser.parse(document);
+
+	assertThat(traits, notNullValue());
+	assertThat(traits, hasSize(5));
+
+	assertThat(traits.get(0).getName(), equalTo("population.size"));
+	assertThat(traits.get(0).getQuantity(), equalTo("SCALAR"));
+	assertThat(traits.get(0).getValue(), equalTo(2500.0));
+	assertThat(traits.get(0).getMaximum(), nullValue());
+
+	assertThat(traits.get(1).getName(), equalTo("lifespan"));
+	assertThat(traits.get(1).getQuantity(), equalTo("TIME"));
+	assertThat(traits.get(1).getValue(), equalTo(504911232.0));
+	assertThat(traits.get(1).getMaximum(), nullValue());
+
+	assertThat(traits.get(2).getName(), equalTo("weight"));
+	assertThat(traits.get(2).getQuantity(), equalTo("MASS"));
+	assertThat(traits.get(2).getValue(), equalTo(5.5));
+	assertThat(traits.get(2).getMaximum(), nullValue());
+
+	assertThat(traits.get(3).getName(), equalTo("height"));
+	assertThat(traits.get(3).getQuantity(), equalTo("LENGTH"));
+	assertThat(traits.get(3).getValue(), equalTo(0.36));
+	assertThat(traits.get(3).getMaximum(), nullValue());
+
+	assertThat(traits.get(4).getName(), equalTo("length"));
+	assertThat(traits.get(4).getQuantity(), equalTo("LENGTH"));
+	assertThat(traits.get(4).getValue(), equalTo(0.57));
+	assertThat(traits.get(4).getMaximum(), equalTo(0.85));
+    }
+
     private static Parser<List<PhysicalTrait>> getParser() {
 	return Classes.newInstance("com.kidscademy.apiservice.parser.AnimaliaPhysicalTraitsParser");
     }
