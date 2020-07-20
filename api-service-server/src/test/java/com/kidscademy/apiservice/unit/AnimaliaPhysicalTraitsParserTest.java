@@ -196,6 +196,76 @@ public class AnimaliaPhysicalTraitsParserTest {
 	assertThat(traits.get(4).getMaximum(), equalTo(0.85));
     }
 
+    @Test
+    public void parse_bay_cat() {
+	Document document = builder.loadHTML(Classes.getResourceAsStream("animalia-bay-cat.htm"));
+	Parser<List<PhysicalTrait>> parser = getParser();
+	List<PhysicalTrait> traits = parser.parse(document);
+
+	assertThat(traits, notNullValue());
+	assertThat(traits, hasSize(4));
+
+	assertThat(traits.get(0).getName(), equalTo("population.size"));
+	assertThat(traits.get(0).getQuantity(), equalTo("SCALAR"));
+	assertThat(traits.get(0).getValue(), equalTo(2500.0));
+	assertThat(traits.get(0).getMaximum(), nullValue());
+
+	assertThat(traits.get(1).getName(), equalTo("lifespan"));
+	assertThat(traits.get(1).getQuantity(), equalTo("TIME"));
+	assertThat(traits.get(1).getValue(), equalTo(315569520.0));
+	assertThat(traits.get(1).getMaximum(), equalTo(536468184.0));
+
+	assertThat(traits.get(2).getName(), equalTo("weight"));
+	assertThat(traits.get(2).getQuantity(), equalTo("MASS"));
+	assertThat(traits.get(2).getValue(), equalTo(3.0));
+	assertThat(traits.get(2).getMaximum(), equalTo(4.0));
+
+	assertThat(traits.get(3).getName(), equalTo("length"));
+	assertThat(traits.get(3).getQuantity(), equalTo("LENGTH"));
+	assertThat(traits.get(3).getValue(), equalTo(0.495));
+	assertThat(traits.get(3).getMaximum(), equalTo(0.67));
+    }
+
+    @Test
+    public void parse_eurasian_lynx() {
+	Document document = builder.loadHTML(Classes.getResourceAsStream("animalia-eurasian-lynx.htm"));
+	Parser<List<PhysicalTrait>> parser = getParser();
+	List<PhysicalTrait> traits = parser.parse(document);
+
+	assertThat(traits, notNullValue());
+	assertThat(traits, hasSize(6));
+
+	assertThat(traits.get(0).getName(), equalTo("population.size"));
+	assertThat(traits.get(0).getQuantity(), equalTo("SCALAR"));
+	assertThat(traits.get(0).getValue(), equalTo(70000.0));
+	assertThat(traits.get(0).getMaximum(), equalTo(80000.0));
+
+	assertThat(traits.get(1).getName(), equalTo("lifespan"));
+	assertThat(traits.get(1).getQuantity(), equalTo("TIME"));
+	assertThat(traits.get(1).getValue(), equalTo(410240376.0));
+	assertThat(traits.get(1).getMaximum(), equalTo(788923800.0));
+
+	assertThat(traits.get(2).getName(), equalTo("speed.full"));
+	assertThat(traits.get(2).getQuantity(), equalTo("SPEED"));
+	assertThat(traits.get(2).getValue(), equalTo(22.222));
+	assertThat(traits.get(2).getMaximum(), nullValue());
+
+	assertThat(traits.get(3).getName(), equalTo("weight"));
+	assertThat(traits.get(3).getQuantity(), equalTo("MASS"));
+	assertThat(traits.get(3).getValue(), equalTo(8.0));
+	assertThat(traits.get(3).getMaximum(), equalTo(30.0));
+
+	assertThat(traits.get(4).getName(), equalTo("height"));
+	assertThat(traits.get(4).getQuantity(), equalTo("LENGTH"));
+	assertThat(traits.get(4).getValue(), equalTo(0.60));
+	assertThat(traits.get(4).getMaximum(), equalTo(0.75));
+
+	assertThat(traits.get(5).getName(), equalTo("length"));
+	assertThat(traits.get(5).getQuantity(), equalTo("LENGTH"));
+	assertThat(traits.get(5).getValue(), equalTo(0.80));
+	assertThat(traits.get(5).getMaximum(), equalTo(1.30));
+    }
+
     private static Parser<List<PhysicalTrait>> getParser() {
 	return Classes.newInstance("com.kidscademy.apiservice.parser.AnimaliaPhysicalTraitsParser");
     }
