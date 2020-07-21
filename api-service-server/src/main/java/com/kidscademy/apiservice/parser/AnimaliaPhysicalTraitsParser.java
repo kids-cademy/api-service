@@ -99,6 +99,7 @@ public class AnimaliaPhysicalTraitsParser implements Parser<List<PhysicalTrait>>
 	META.put("CM", new Meta("LENGTH", 0.01));
 	META.put("M", new Meta("LENGTH", 1.0));
 	META.put("THOU", new Meta("SCALAR", 1000.0));
+	META.put("MLN", new Meta("SCALAR", 1000000.0));
     }
 
     private static Meta meta(String units) {
