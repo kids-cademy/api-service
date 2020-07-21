@@ -63,6 +63,7 @@ public class AnimaliaPhysicalTraitsParser implements Parser<List<PhysicalTrait>>
     private static String[] parts(String value) {
 	value = value.toUpperCase();
 	value = value.replace("BELOW ", "");
+	value = value.replace("ABOVE ", "");
 	value = value.replace(" TO ", "-");
 	return Strings.split(value, '-', ' ').toArray(new String[0]);
     }
