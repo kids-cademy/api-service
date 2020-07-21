@@ -92,8 +92,10 @@ public class AnimaliaPhysicalTraitsParser implements Parser<List<PhysicalTrait>>
 	META.put("YEARS", new Meta("TIME", 31556952.0));
 	META.put("KM/H", new Meta("SPEED", 1.0 / 3.6));
 	META.put("MPH", new Meta("SPEED", 1.0 / 2.23693629));
+	META.put("G", new Meta("MASS", 0.001));
 	META.put("KG", new Meta("MASS", 1.0));
 	META.put("T", new Meta("MASS", 1000));
+	META.put("MM", new Meta("LENGTH", 0.001));
 	META.put("CM", new Meta("LENGTH", 0.01));
 	META.put("M", new Meta("LENGTH", 1.0));
 	META.put("THOU", new Meta("SCALAR", 1000.0));
